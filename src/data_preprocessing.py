@@ -38,15 +38,20 @@ def transform_text(text):
     ps = PorterStemmer()
     # Convert to lowercase
     text = text.lower()
+    print(text)
     # Tokenize the text
     text = nltk.word_tokenize(text)
+    print(text)
     # Remove non-alphanumeric tokens
     text = [word for word in text if word.isalnum()]
+    print
     # Remove stopwords and punctuation
     text = [word for word in text if word not in stopwords.words('english') and word not in string.punctuation]
+    print(text)
     # Stem the words
     text = [ps.stem(word) for word in text]
     # Join the tokens back into a single string
+    print(text)
     return " ".join(text)
 
 def preprocess_df(df, text_column='text', target_column='target'):
